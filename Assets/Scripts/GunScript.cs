@@ -11,7 +11,7 @@ public class GunScript : MonoBehaviour
     LayerMask layerMask;
 
     
-     private Animator gunFireAnim;
+    public Animator gunFireAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class GunScript : MonoBehaviour
         {
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
-            gunFireAnim.SetBool("shootGun", true);
+            gunFireAnim.SetBool("TriggerDown", true);
             if (Physics.Raycast(ray, out hit, rayLength, layerMask))
             {
                 line.startColor = Color.blue;
@@ -43,7 +43,7 @@ public class GunScript : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             line.startColor = Color.white;
-            gunFireAnim.SetBool("shootGun", false);
+            gunFireAnim.SetBool("TriggerDown", false);
         }
 
         line.SetPosition(0, transform.position);
