@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GunScript : MonoBehaviour
-{
+{ 
     LineRenderer line;
-    float rayLength = 10;
+    float rayLength = 100;
 
     [SerializeField]
     LayerMask layerMask;
 
-    
     public Animator gunFireAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if (Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
@@ -30,17 +30,15 @@ public class GunScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit, rayLength, layerMask))
             {
                 line.startColor = Color.blue;
-                
             }
 
             else
             {
                 line.startColor = Color.grey;
-               
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if (Input.GetKeyUp(KeyCode.G) || OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
         {
             line.startColor = Color.white;
             gunFireAnim.SetBool("TriggerDown", false);
@@ -48,6 +46,5 @@ public class GunScript : MonoBehaviour
 
         line.SetPosition(0, transform.position);
         line.SetPosition(1, transform.position + (transform.forward * rayLength));
-          
     }
 }
