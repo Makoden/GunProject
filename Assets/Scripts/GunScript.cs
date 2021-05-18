@@ -11,6 +11,7 @@ public class GunScript : MonoBehaviour
     LayerMask layerMask;
 
     public Animator gunFireAnim;
+    public ParticleSystem muzzFlash;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class GunScript : MonoBehaviour
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
             gunFireAnim.SetBool("TriggerDown", true);
+            muzzFlash.Play();
             if (Physics.Raycast(ray, out hit, rayLength, layerMask))
             {
                 line.startColor = Color.blue;

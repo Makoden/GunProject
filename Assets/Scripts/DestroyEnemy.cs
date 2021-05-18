@@ -8,6 +8,8 @@ public class DestroyEnemy : MonoBehaviour
 
     [SerializeField]
     LayerMask layerMask;
+    public int scoreNum;
+    public ParticleSystem death;
 
     // Update is called once per frame
     void Update()
@@ -19,8 +21,24 @@ public class DestroyEnemy : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, rayLength, layerMask))
             {
-                Destroy(hit.transform.gameObject);
+                
+                deathFunction();
             }
+        }
+    }
+    
+   public void deathFunction()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        scoreNum += 1;
+        if (Physics.Raycast(ray, out hit, rayLength, layerMask))
+        {
+            
+            death.transform.position = hit.transform.position;
+            death.Play();
+            Destroy(hit.transform.gameObject, .1f);
+            
         }
     }
 }

@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 1421244177880501638}
   - component: {fileID: 1421244177880501632}
   - component: {fileID: 1060681419370439189}
+  - component: {fileID: 7851910178647782615}
   m_Layer: 9
   m_Name: FlyEnemy1
   m_TagString: Untagged
@@ -302,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421244177880501633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.92, z: 4.821}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1421244177438530855}
@@ -356,6 +357,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   MoveSpeed: 4
+--- !u!114 &7851910178647782615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421244177880501633}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b28533a5f89174f91d550eb0044632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  scoreNum: 0
+  death: {fileID: 0}
 --- !u!1 &1421244178271550579
 GameObject:
   m_ObjectHideFlags: 0

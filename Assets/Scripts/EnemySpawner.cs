@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         Invoke("spawnEnemies", spawnTime);
-        Instantiate(enemyPrefab);
+  
     }
 
     void spawnEnemies()
