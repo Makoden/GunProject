@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DestroyEnemy : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class DestroyEnemy : MonoBehaviour
     LayerMask layerMask;
     public int scoreNum;
     public ParticleSystem death;
+    public Text scoreText;
+    public AudioSource Destruction;
 
     // Update is called once per frame
     void Update()
@@ -23,6 +26,7 @@ public class DestroyEnemy : MonoBehaviour
             {
                 
                 deathFunction();
+                Destruction.Play();
             }
         }
     }
@@ -32,13 +36,15 @@ public class DestroyEnemy : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
         scoreNum += 1;
+        scoreText.text = "Score: " + scoreNum;
         if (Physics.Raycast(ray, out hit, rayLength, layerMask))
         {
             
             death.transform.position = hit.transform.position;
             death.Play();
             Destroy(hit.transform.gameObject, .1f);
-            
+              
+          
         }
     }
 }

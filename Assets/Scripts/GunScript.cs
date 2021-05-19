@@ -12,6 +12,7 @@ public class GunScript : MonoBehaviour
 
     public Animator gunFireAnim;
     public ParticleSystem muzzFlash;
+    public AudioSource gunShot;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class GunScript : MonoBehaviour
             RaycastHit hit;
             gunFireAnim.SetBool("TriggerDown", true);
             muzzFlash.Play();
+            gunShot.Play();
             if (Physics.Raycast(ray, out hit, rayLength, layerMask))
             {
                 line.startColor = Color.blue;
