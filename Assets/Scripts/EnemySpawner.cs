@@ -21,11 +21,11 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void spawnEnemies()
-    {
+    {// This randomizes the enemy spawn points before they move towards the player
         Invoke("spawnEnemies", spawnTime);
-        float randomX = Random.Range(-10, 10);
-        float randomY = Random.Range(10, 20);
-        float randomZ = Random.Range(5, 30);
+        float randomX = Random.Range(-7, 7);
+        float randomY = Random.Range(14, 18);
+        float randomZ = Random.Range(30, 35);
         spawnedEnemy = Instantiate(enemyPrefab);
         spawnedEnemy.transform.position = new Vector3(randomX, randomY, randomZ);
     }

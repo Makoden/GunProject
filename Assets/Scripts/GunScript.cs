@@ -24,6 +24,7 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //This activates the gun to fire and changes the raycast color.
         if (Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
             Ray ray = new Ray(transform.position, transform.forward);
@@ -38,13 +39,13 @@ public class GunScript : MonoBehaviour
 
             else
             {
-                line.startColor = Color.grey;
+                line.startColor = Color.red;
             }
         }
 
         if (Input.GetKeyUp(KeyCode.G) || OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
         {
-            line.startColor = Color.white;
+            line.startColor = Color.red;
             gunFireAnim.SetBool("TriggerDown", false);
         }
 

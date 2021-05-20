@@ -22,9 +22,7 @@ public class EnemyBehavior : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-
+    {//this code causes the enemy to approach the player.
         if (Vector3.Distance(transform.position, Player.position) >= MinDist)
         {
             transform.position -= transform.forward * MoveSpeed * Time.deltaTime;

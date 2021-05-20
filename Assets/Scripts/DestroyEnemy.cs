@@ -16,7 +16,7 @@ public class DestroyEnemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    { //This is a complement to the GunScript code for actual enemy destruction
         if (Input.GetKeyDown(KeyCode.G) || OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
         {
             Ray ray = new Ray(transform.position, transform.forward);
@@ -32,7 +32,7 @@ public class DestroyEnemy : MonoBehaviour
     }
     
    public void deathFunction()
-    {
+    { //This function causes the animations to play for the death of the enemy and updates the score
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
         scoreNum += 1;
